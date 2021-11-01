@@ -1,23 +1,27 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Image, Text, StyleSheet } from 'react-native';
 
-const ResultListItem = ({ title, releaseDate, posterPath }) => {
+const ResultListItem = ({ title, releaseDate, genres, posterPath }) => {
 	const imageBaseUrl = 'https://image.tmdb.org/t/p/w200';
 	const imageUrl = imageBaseUrl + posterPath;
 
 	return (
-		<TouchableOpacity>
+		<>
 			<View style={styles.resultsListItemContainer}>
 				<Image style={styles.moviePoster} source={{ uri: imageUrl }} />
+
 				<View style={styles.movieMajorInfo}>
-					<Text style={styles.movieTitle}>{title}</Text>
+					<Text style={styles.movieTitle} numberOfLines={1}>
+						{title}
+					</Text>
+
 					<View style={styles.movieMinorInfo}>
-						<Text style={styles.movieGenre}>{posterPath}</Text>
+						<Text style={styles.movieGenre}>{genres}</Text>
 						<Text style={styles.releaseDate}>{releaseDate}</Text>
 					</View>
 				</View>
 			</View>
-		</TouchableOpacity>
+		</>
 	);
 };
 
@@ -34,6 +38,7 @@ const styles = StyleSheet.create({
 	movieTitle: {
 		fontSize: 24,
 		flexWrap: 'wrap',
+		fontWeight: 'bold',
 	},
 	movieMajorInfo: {
 		flex: 1,
@@ -46,9 +51,13 @@ const styles = StyleSheet.create({
 	},
 	movieGenre: {
 		// marginRight: '1rem',
+		fontSize: 10,
+		color: '#999',
 	},
 	releaseDate: {
 		marginRight: 5,
+		fontSize: 10,
+		color: '#999',
 	},
 });
 
