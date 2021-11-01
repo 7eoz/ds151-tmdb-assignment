@@ -54,7 +54,12 @@ function HomeScreen({ navigation }) {
 					const releaseDate = item.release_date.split('-').reverse().join('/');
 					return (
 						<>
-							<TouchableOpacity onPress={() => navigation.navigate('Details')}>
+							<TouchableOpacity
+								onPress={() =>
+									navigation.navigate('Details', {
+										id: item.id,
+									})
+								}>
 								<ResultListItem
 									title={item.title}
 									genres={genresList.join(', ')}

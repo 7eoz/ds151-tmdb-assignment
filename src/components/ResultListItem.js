@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		flexWrap: 'wrap',
 		fontWeight: 'bold',
+		marginRight: 15,
 	},
 	movieMajorInfo: {
 		flex: 1,
@@ -51,12 +52,12 @@ const styles = StyleSheet.create({
 	},
 	movieGenre: {
 		// marginRight: '1rem',
-		fontSize: 10,
+		fontSize: 14,
 		color: '#999',
 	},
 	releaseDate: {
 		marginRight: 5,
-		fontSize: 10,
+		fontSize: 14,
 		color: '#999',
 	},
 });
