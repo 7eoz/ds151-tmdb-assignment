@@ -36,18 +36,20 @@ function MovieDetails() {
 const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'column',
+		height: '100%',
+		flexWrap: 'wrap',
 	},
 	mainDetailsContainer: {
 		flexDirection: 'row',
+		flex: 1,
 	},
 	moviePoster: {
 		width: '50%',
-		height: 300,
+		height: '100%',
 		marginTop: 5,
 		marginLeft: 5,
 	},
 	movieInfo: {
-		flex: 1,
 		flexDirection: 'column',
 		flexWrap: 'wrap',
 		marginLeft: 5,
@@ -62,7 +64,9 @@ const styles = StyleSheet.create({
 		color: '#666666',
 		fontStyle: 'italic',
 	},
-	movieDescriptionContainer: {},
+	movieDescriptionContainer: {
+		flex: 1,
+	},
 });
 
 export default MovieDetails;
