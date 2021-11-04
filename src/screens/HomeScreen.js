@@ -58,6 +58,10 @@ function HomeScreen({ navigation }) {
 								onPress={() =>
 									navigation.navigate('Details', {
 										id: item.id,
+										title: item.title,
+										genres: genresList,
+										releaseDate: releaseDate,
+										posterPath: item.poster_path,
 									})
 								}>
 								<ResultListItem

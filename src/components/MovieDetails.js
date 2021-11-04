@@ -1,32 +1,22 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-function MovieDetails() {
+function MovieDetails({ title, genres, releaseDate, posterPath, overview }) {
+	const imageBaseUrl = 'https://image.tmdb.org/t/p/w200';
+	const imageUrl = imageBaseUrl + posterPath;
 	return (
 		<>
 			<View style={styles.container}>
 				<View style={styles.mainDetailsContainer}>
-					<Image
-						style={styles.moviePoster}
-						source={{
-							uri: 'https://http2.mlstatic.com/D_NQ_NP_866792-MLB32711553663_102019-O.jpg',
-						}}
-					/>
-					{/*  */}
+					<Image style={styles.moviePoster} source={{ uri: imageUrl }} />
 					<View style={styles.movieInfo}>
-						<Text style={styles.movieTitle}>The Avengers</Text>
-						<Text>genres</Text>
-						<Text>releaseDate</Text>
-						<Text>vote average</Text>
+						<Text style={styles.movieTitle}>{title}</Text>
+						<Text>{genres.join(', ')}</Text>
+						<Text>{releaseDate}</Text>
 					</View>
 				</View>
 				<View style={styles.movieDescriptionContainer}>
-					<Text style={styles.movieDescription}>
-						movie description movie description movie description movie
-						description movie description movie description movie description
-						movie description movie description movie description movie
-						description movie description movie description
-					</Text>
+					<Text style={styles.movieDescription}>{overview}</Text>
 				</View>
 			</View>
 		</>

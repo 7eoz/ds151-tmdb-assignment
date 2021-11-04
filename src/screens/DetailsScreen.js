@@ -6,25 +6,33 @@ import MovieDetails from '../components/MovieDetails';
 function DetailsScreen({ navigation, route }) {
 	const [movieDetails, setmovieDetails] = useState({});
 
-	// async function fetchMovieDetails() {
-	// 	const movieId = route.params.id;
-	// 	try {
-	// 		const response = await tmdb.get(`/movie/${movieId}`, {
-	// 			params: {
-	// 				include_adult: false,
-	// 			},
-	// 		});
-	// 		setmovieDetails(response.data);
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// }
+	async function fetchMovieDetails() {
+		const movieId = route.params.id;
+		try {
+			const response = await tmdb.get(`/movie/${movieId}`, {
+				params: {
+					include_adult: false,
+				},
+			});
+			setmovieDetails(response.data);
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
-	// useEffect(() => {
-	// 	fetchMovieDetails();
-	// }, []);
+	useEffect(() => {
+		fetchMovieDetails();
+	}, []);
 
-	return <MovieDetails />;
+	return (
+		<MovieDetails
+			title={route.params.title}
+			genres={route.params.genres}
+			releaseDate={route.params.releaseDate}
+			posterPath={route.params.posterPath}
+			overview={movieDetails.overview}
+		/>
+	);
 }
 
 const styles = StyleSheet.create({});
