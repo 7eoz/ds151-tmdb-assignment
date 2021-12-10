@@ -27,8 +27,10 @@ function DetailsScreen({ navigation, route }) {
 	return (
 		<MovieDetails
 			title={route.params.title}
-			genres={route.params.genres}
-			releaseDate={route.params.releaseDate}
+			genres='genres'
+			releaseDate='release_date'
+			// genres={route.params.genres}
+			// releaseDate={route.params.releaseDate}
 			posterPath={route.params.posterPath}
 			overview={movieDetails.overview}
 		/>
